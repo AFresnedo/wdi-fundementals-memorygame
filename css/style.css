@@ -1,0 +1,10 @@
+body {
+	text-align: center;
+	text-decoration: none;
+}
+h1, h2, h3 {
+	text-transform: uppercase;
+}
+p {
+	text-transform: uppercase;
+}
