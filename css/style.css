@@ -10,13 +10,25 @@ p {
 }
 
 h1 {
-	font-family: Raleway, sans-serif;
-	text-color: #0D2C40;
+	font-family: "Raleway", sans-serif;
+	color: #0d2c40;
 	letter-spacing: 1px;
-	font-weight: 400px;
+	font-weight: 400;
 	font-size: 45px;
+}
 
-a {
-	font-family: Raleway, sans-serif;
-	text-color: #F15B31
-	text-spacing: 
+h3 {
+	font-family: "Raleway", sans-serif;
+	color: #0d2c40;
+	letter-spacing: 1px;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.gl {
+	font-family: "Raleway", sans-serif;
+	color: #F15B31;
+	font-weight: 600;
+	font-size: 18px;
+	text-decoration: none;
+}
