@@ -1,7 +1,28 @@
-// card items
+// playable card list
 var cards, cardsInPlay;
-var cardOne, cardTwo;
-cards = ["queen", "queen", "king", "king"];
+cards = [
+	{
+		rank: "queen",
+		suit: "hearts",
+		cardImage: "images/queen-of-hearts.png"
+	},
+	{
+		rank: "queen",
+		suit: "diamonds",
+		cardImage: "images/queen-of-diamonds.png"
+	},
+	{
+		rank: "king",
+		suit: "hearts",
+		cardImage: "images/king-of-hearts.png"
+	},
+	{
+		rank: "king",
+		suit: "diamonds",
+		cardImage: "images/king-of-diamonds.png"
+	}
+]
+
 cardsInPlay = [];
 
 // game logic
@@ -21,9 +42,11 @@ var flipCard = function (cardId) {
 	// get card to play
 	var flippedCard = cards[cardId];
 	// add card to "in play"
-	cardsInPlay.push(flippedCard);
+	cardsInPlay.push(flippedCard.rank);
 	// give feedback to user
-	console.log("User flipped " + flippedCard);
+	console.log("User flipped " + flippedCard.rank);
+	console.log("Card suit is " + flippedCard.suit);
+	console.log("Card image is " + flippedCard.cardImage);
 	checkForMatch();
 }
 
