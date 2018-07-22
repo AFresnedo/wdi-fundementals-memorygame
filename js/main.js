@@ -33,23 +33,53 @@ var checkForMatch = function () {
 		alert("You found a match!");
 	}
 	else {
-		alert("You don't have a match, yet.");
+		alert("The first two cards did not match.");
 	}
 }
 
-// precondition: card unflipped
+// precondition (assumed handled by event listener): card unflipped, called by correct card
 var flipCard = function (cardId) {
+	//
+	// flip the card
+	// 
 	// get card to play
-	var flippedCard = cards[cardId];
+	var flippedCard = cards[this.getAttribute('data-id')];
 	// add card to "in play"
 	cardsInPlay.push(flippedCard.rank);
 	// give feedback to user
 	console.log("User flipped " + flippedCard.rank);
 	console.log("Card suit is " + flippedCard.suit);
-	console.log("Card image is " + flippedCard.cardImage);
-	checkForMatch();
+	this.setAttribute('src', flippedCard.cardImage);
+	//
+	// after card has been flipped, check if a match has been found yet
+	//
+	if (cardsInPlay.length === 2) {
+		checkForMatch();
+	}
 }
 
-// simulated user actions
-flipCard(0);
-flipCard(1);
+var createBoard = function () {
+	// place every card, face down, on the board
+	for (var i = 0; i < cards.length; i++) {
+		//
+		// setup the card
+		// 
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		// note: 'data-NAME' attributes are meant to store data about an element that is not tied to a style
+		//    generally, i assume this is used for JS...it's relevant because it occupies the same space (attributes)
+		//    as css related data
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		//
+		// add the card to the board
+		// 
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+}
+
+//
+// start the game
+//
+// create the board
+createBoard();
